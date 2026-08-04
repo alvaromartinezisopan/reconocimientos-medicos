@@ -8,7 +8,7 @@
         :root {
             --text-primary: #1e293b; 
             --text-secondary: #475569; 
-            --card-radius: 20px;
+            --card-radius: 16px;
         }
 
         * {
@@ -31,7 +31,7 @@
             display: flex;
             flex-direction: column;
             overflow: hidden; 
-            padding: 2vh 2.5vw;
+            padding: 1.5vh 2vw;
             justify-content: space-between;
         }
 
@@ -42,16 +42,16 @@
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 1vh 2vw;
-            border-radius: 22px;
+            padding: 0.8vh 1.5vw;
+            border-radius: 18px;
             border: 1px solid rgba(255, 255, 255, 0.7);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             width: 100%;
-            margin-bottom: 1.2vh;
+            margin-bottom: 0.8vh;
         }
 
         .header-left, .header-right {
-            width: 30%; 
+            width: 28% sacerdote; 
             display: flex;
             align-items: center;
         }
@@ -62,16 +62,16 @@
 
         .header-right {
             justify-content: flex-end;
-            gap: 1.2vw;
+            gap: 1vw;
         }
 
         .header-center {
-            width: 40%;
+            width: 44%;
             text-align: center;
         }
 
         .logo {
-            max-height: 5vh;
+            max-height: 4vh;
             width: auto;
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
@@ -79,20 +79,26 @@
 
         .widget {
             background: rgba(255, 255, 255, 0.65);
-            padding: 0.8vh 1.2vw;
-            border-radius: 16px;
+            padding: 0.6vh 1vw;
+            border-radius: 12px;
             font-weight: 700;
             color: var(--text-primary);
-            font-size: 1.3vw; 
+            font-size: 1.1vw; 
             display: flex;
             align-items: center;
-            gap: 0.5vw;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            gap: 0.4vw;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
             border: 1px solid rgba(255,255,255,0.85);
         }
 
+        .widget svg {
+            width: 1.2vw;
+            height: 1.2vw;
+            fill: currentColor;
+        }
+
         h1 {
-            font-size: 2vw;
+            font-size: 1.7vw;
             font-weight: 800;
             letter-spacing: -0.02em;
             color: #0f172a;
@@ -100,30 +106,34 @@
         }
 
         .subtitle {
-            font-size: 0.75vw;
+            font-size: 0.7vw;
             color: var(--text-secondary);
             font-weight: 600;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
             margin-top: 0.2vh;
         }
 
+        .subtitle b {
+            color: #0f172a;
+        }
+
         .dates-container {
             display: flex;
-            gap: 1.5vw;
-            margin-bottom: 1.2vh;
+            gap: 1.2vw;
+            margin-bottom: 0.8vh;
         }
 
         .date-card {
             flex: 1;
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-            padding: 1vh 1.5vw;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            padding: 0.8vh 1.2vw;
             display: flex;
-            align-items: center;
-            gap: 1vw;
+            flex-direction: column;
+            justify-content: center;
         }
 
         /* Tarjeta de analíticas en tono rojo claro */
@@ -131,10 +141,10 @@
             background: rgba(254, 226, 226, 0.65);
             border: 1px solid rgba(239, 68, 68, 0.35);
         }
-        .date-card.analitica-card .date-info h3 {
+        .date-card.analitica-card h3 {
             color: #991b1b;
         }
-        .date-card.analitica-card .date-info p {
+        .date-card.analitica-card p {
             color: #7f1d1d;
         }
         .date-card.analitica-card .sub-info {
@@ -146,74 +156,78 @@
             background: rgba(237, 233, 254, 0.65);
             border: 1px solid rgba(168, 85, 247, 0.35);
         }
-        .date-card.reconocimiento-card .date-info h3 {
+        .date-card.reconocimiento-card h3 {
             color: #6d28d9;
         }
-        .date-card.reconocimiento-card .date-info p {
+        .date-card.reconocimiento-card p {
             color: #581c87;
         }
         .date-card.reconocimiento-card .sub-info {
             color: #7c3aed;
         }
 
-        .date-icon {
-            font-size: 2.2vw;
-            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
+        .date-info h3 {
+            font-size: 0.9vw;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.1vh;
+            display: flex;
+            align-items: center;
+            gap: 0.4vw;
         }
 
-        .date-info h3 {
-            font-size: 1vw;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 0.1vh;
+        .date-info h3 svg {
+            width: 1vw;
+            height: 1vw;
+            fill: currentColor;
         }
 
         .date-info p {
-            font-size: 1.2vw;
+            font-size: 1.05vw;
             font-weight: 800;
         }
 
         .date-info .sub-info {
-            font-size: 0.75vw;
+            font-size: 0.68vw;
             font-weight: 600;
-            margin-top: 0.2vh;
+            margin-top: 0.1vh;
         }
 
         /* GRID GENERAL DE TRABAJADORES */
         .workers-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 0.8vh 1vw;
+            gap: 0.5vh 0.8vw;
             flex: 1;
             align-content: start;
             overflow: hidden;
-            padding-bottom: 0.5vh;
+            padding-bottom: 0.2vh;
         }
 
         .worker-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 14px;
+            border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.85);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
-            padding: 0.8vh 1vw;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            padding: 0.5vh 0.8vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .worker-name {
-            font-size: 0.95vw;
+            font-size: 0.85vw;
             font-weight: 800;
             color: #1e293b;
-            margin-bottom: 0.3vh;
+            margin-bottom: 0.2vh;
         }
 
         .worker-badges {
             display: flex;
-            gap: 0.4vw;
-            font-size: 0.58vw;
+            gap: 0.3vw;
+            font-size: 0.52vw;
             font-weight: 700;
             flex-wrap: wrap;
         }
@@ -221,17 +235,29 @@
         .badge-analitica {
             background: rgba(239, 68, 68, 0.12);
             color: #991b1b;
-            padding: 0.2vh 0.5vw;
-            border-radius: 6px;
+            padding: 0.15vh 0.4vw;
+            border-radius: 4px;
             border: 1px solid rgba(239, 68, 68, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2vw;
         }
 
         .badge-reconocimiento {
             background: rgba(124, 58, 237, 0.12);
             color: #6d28d9;
-            padding: 0.2vh 0.5vw;
-            border-radius: 6px;
+            padding: 0.15vh 0.4vw;
+            border-radius: 4px;
             border: 1px solid rgba(124, 58, 237, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2vw;
+        }
+
+        .badge-analitica svg, .badge-reconocimiento svg {
+            width: 0.75vw;
+            height: 0.75vw;
+            fill: currentColor;
         }
 
     </style>
@@ -244,15 +270,18 @@
         
         <div class="header-center">
             <h1>BUSCA TU NOMBRE Y TUS CITAS</h1>
-            <p class="subtitle">Comprueba qué día te toca el análisis de sangre y tu revisión médica</p>
+            <p class="subtitle">Lugar de realización para ambas pruebas: <b>Isopán Ibérica</b></p>
         </div>
         
         <div class="header-right">
             <div class="widget" id="weather-widget">
-                <span id="weather-icon">☁️</span>
+                <span id="weather-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                </span>
                 <span id="weather-temp">--°C</span>
             </div>
             <div class="widget" id="time-widget">
+                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
                 <span id="current-time">--:--</span>
             </div>
         </div>
@@ -260,19 +289,23 @@
     
     <div class="dates-container">
         <div class="date-card analitica-card">
-            <div class="date-icon">🩸</div>
             <div class="date-info">
-                <h3>1. Análisi de Sangre (De 7:00 a 11:00 h)</h3>
+                <h3>
+                    <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                    1. Análisis de Sangre (De 7:00 a 11:00 h)
+                </h3>
                 <p>16 Sep &nbsp;|&nbsp; 22 Sep &nbsp;|&nbsp; 30 Sep</p>
-                <div class="sub-info">👉 Puedes ir a la hora que quieras dentro de ese horario. <b>Es obligatorio venir en ayunas.</b></div>
+                <div class="sub-info">- Puedes ir a la hora que quieras dentro de ese horario. <b>Es obligatorio venir en ayunas.</b></div>
             </div>
         </div>
         <div class="date-card reconocimiento-card">
-            <div class="date-icon">🩺</div>
             <div class="date-info">
-                <h3>2. Revisión Médica (Hora fija)</h3>
+                <h3>
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                    2. Revisión Médica (Hora fija)
+                </h3>
                 <p>07 Oct &nbsp;|&nbsp; 16 Oct &nbsp;|&nbsp; 19 Oct &nbsp;|&nbsp; 04 Nov</p>
-                <div class="sub-info">👉 Tienes que ir obligatoriamente el día y a la hora exacta que pone en tu tarjeta de abajo.</div>
+                <div class="sub-info">- Tienes que ir obligatoriamente el día y a la hora exacta que pone en tu tarjeta de abajo.</div>
             </div>
         </div>
     </div>
@@ -282,320 +315,320 @@
         <div class="worker-card">
             <div class="worker-name">Alberto Huescar</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 09:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 09:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Alejandro Gutiérrez</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 09:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 09:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Alexandre Badia</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 08:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 08:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Andres Arango</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 08:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 08:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Antonio Bosquet</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 08:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 08:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Antonio Márquez</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 09:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 09:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Arnau Díaz</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 08:40 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 08:40 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Daniel Algaba</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 08:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 08:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Daniel Navarro</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 10:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 10:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">David Curiel</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 08:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 08:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">David Gómez</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 08:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 08:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">David Nieto</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 09:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 09:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Eduardo Tejero</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 10:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 10:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Federico Pons</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 10:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 10:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Fernando Millan</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 09:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 09:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Francisco Curco</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 08:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 08:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Gregorio Roca</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 10:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 10:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Hector Manuel Reyes</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 08:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 08:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Ismael Cortés</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 08:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 08:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Jacob Moreno</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 09:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 09:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Jacobo Gómez</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 09:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 09:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Jose Delgado</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 09:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 09:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Jose Manuel López</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 08:40 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 08:40 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">José Raya</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 09:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 09:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Josep Mena</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 08:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 08:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Juan Carlos Munera</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 09:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 09:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Jordi Serrahima</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 10:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 10:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Leonardo Grez</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 08:40 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 08:40 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Luca Adolfini</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 10:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 10:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Luis Galvan</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 09:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 09:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Manuel Pavón</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 09:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 09:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Marc Carrasco</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 07 Oct a las 08:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 07 Oct - 08:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Oriol Pla</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 08:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 08:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Oscar Rodríguez</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 10:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 10:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Reynaldo Olaverria</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 10:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 10:00 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Ruben Fernández</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 08:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 08:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Salva Gómez</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 08:20 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 08:20 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Tomás Jimenez</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 22 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 19 Oct a las 08:40 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 19 Oct - 08:40 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Victor Fuentes</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 16 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 16 Oct a las 08:40 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 16 Oct - 08:40 h</span>
             </div>
         </div>
 
         <div class="worker-card">
             <div class="worker-name">Víctor Sánchez</div>
             <div class="worker-badges">
-                <span class="badge-analitica">🩸 Sangre: 30 Sep (7h-11h en ayunas)</span>
-                <span class="badge-reconocimiento">🩺 Médico: 04 Nov a las 10:00 h</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> 04 Nov - 10:00 h</span>
             </div>
         </div>
     </div>
@@ -624,12 +657,16 @@
                     
                     document.getElementById('weather-temp').textContent = `${temp}°C`;
                     
-                    let icon = '☀️';
-                    if (weatherCode >= 50) icon = '🌧️';
-                    else if (weatherCode >= 1 && weatherCode < 50) icon = '☁️';
-                    else if (!isDay) icon = '🌙';
+                    let svgPath = '<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>'; // Nube por defecto
+                    if (weatherCode >= 50) {
+                        svgPath = '<path d="M16 13c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2zm-8 2c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2zm8-10C13.66 3 11 4.66 11 7.5V8H7c-1.1 0-2 .9-2 2v1c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-1c0-1.1-.9-2-2-2h-2v-.5C15 5.67 14.33 5 13.5 5c-.41 0-.79.17-1.06.44-.27.27-.44.65-.44 1.06h2c0-.28.22-.5.5-.5s.5.22.5.5v.5h-2z"/>'; // Lluvia
+                    } else if (weatherCode === 0) {
+                        svgPath = '<path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/>'; // Sol
+                    } else if (!isDay) {
+                        svgPath = '<path d="M12.3 2c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.1-2.1C9.39 19.26 10.8 19.6 12.3 19.6c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/>'; // Luna
+                    }
                     
-                    document.getElementById('weather-icon').textContent = icon;
+                    document.getElementById('weather-icon').innerHTML = `<svg viewBox="0 0 24 24">${svgPath}</svg>`;
                 }
             } catch (error) {
                 console.error("No se pudo cargar el clima", error);
