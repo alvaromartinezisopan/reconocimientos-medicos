@@ -6,11 +6,11 @@
     <title>Reconocimientos Médicos - Glassmorphism TV 4K</title>
     <style>
         :root {
-            --text-primary: #1d1d1f; /* Negro nativo de Apple */
-            --text-secondary: #86868b; /* Gris secundario de Apple */
+            --text-primary: #1d1d1f; 
+            --text-secondary: #86868b; 
             --card-radius: 18px;
-            --apple-red: rgba(255, 59, 48, 0.85); /* Rojo saturado iOS */
-            --apple-purple: rgba(175, 82, 222, 0.85); /* Morado saturado iOS */
+            --apple-red: rgba(255, 59, 48, 0.85); 
+            --apple-purple: rgba(175, 82, 222, 0.85); 
         }
 
         * {
@@ -24,22 +24,22 @@
 
         body {
             background-color: #f0fdfa;
-            /* Fondo con gradientes más vibrantes para que el cristal reaccione mejor */
             background-image: 
                 radial-gradient(at 0% 0%, hsla(180, 70%, 75%, 0.6) 0, transparent 50%), 
                 radial-gradient(at 100% 0%, hsla(210, 80%, 80%, 0.6) 0, transparent 50%), 
                 radial-gradient(at 50% 100%, hsla(280, 50%, 80%, 0.6) 0, transparent 50%);
             color: var(--text-primary);
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; 
+            overflow-x: hidden; 
+            overflow-y: auto;
             padding: 1.2vh 1.8vw;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 1.5vh;
         }
 
-        /* EFECTO GLASSMORPHISM BASE */
         .glass-panel {
             background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(24px) saturate(180%);
@@ -55,7 +55,7 @@
             padding: 0.8vh 1.5vw;
             border-radius: var(--card-radius);
             width: 100%;
-            margin-bottom: 0.8vh;
+            flex-shrink: 0;
         }
 
         .header-left, .header-right {
@@ -105,11 +105,10 @@
             fill: currentColor;
         }
 
-        /* TIPOGRAFÍA ESTILO APPLE */
         h1 {
             font-size: 2.1vw;
-            font-weight: 800; /* Extra bold típico de SF Pro Display */
-            letter-spacing: -0.04em; /* Kerning negativo de Apple */
+            font-weight: 800;
+            letter-spacing: -0.04em; 
             color: var(--text-primary);
             line-height: 1.1;
         }
@@ -130,7 +129,7 @@
         .dates-container {
             display: flex;
             gap: 1.2vw;
-            margin-bottom: 0.8vh;
+            flex-shrink: 0;
         }
 
         .date-card {
@@ -142,30 +141,56 @@
             justify-content: space-between;
             backdrop-filter: blur(30px) saturate(200%);
             -webkit-backdrop-filter: blur(30px) saturate(200%);
-            color: var(--text-primary); /* Texto oscuro para máxima legibilidad */
         }
 
-        /* Tarjeta de analíticas ROJO APPLE */
+        /* PALETA TARJETA ROJA */
         .date-card.analitica-card {
             background: var(--apple-red);
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 10px 30px rgba(255, 59, 48, 0.25);
+            color: #5c0a06; /* Mismo color oscuro del título para fechas y pie */
+        }
+        
+        .analitica-card .card-title {
+            color: #5c0a06; 
         }
 
-        /* Tarjeta de reconocimientos MORADO APPLE */
+        .analitica-card .card-time {
+            background: rgba(92, 10, 6, 0.15);
+            color: #5c0a06;
+        }
+
+        .analitica-card .card-footer b {
+            color: #5c0a06;
+        }
+
+        /* PALETA TARJETA MORADA */
         .date-card.reconocimiento-card {
             background: var(--apple-purple);
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 10px 30px rgba(175, 82, 222, 0.25);
+            color: #3b0a5c; /* Mismo color oscuro del título para fechas y pie */
         }
 
-        /* NUEVA ESTRUCTURA DE TARJETAS TIPO WIDGET */
+        .reconocimiento-card .card-title {
+            color: #3b0a5c; 
+        }
+
+        .reconocimiento-card .card-time {
+            background: rgba(59, 10, 92, 0.15);
+            color: #3b0a5c;
+        }
+
+        .reconocimiento-card .card-footer b {
+            color: #3b0a5c;
+        }
+
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 0.8vh;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             padding-bottom: 0.6vh;
         }
 
@@ -179,7 +204,6 @@
         .card-time {
             font-size: 0.8vw;
             font-weight: 700;
-            background: rgba(0, 0, 0, 0.1);
             padding: 0.3vh 0.6vw;
             border-radius: 20px;
             letter-spacing: 0.02em;
@@ -195,8 +219,8 @@
 
         .card-footer {
             font-size: 0.85vw;
-            font-weight: 500;
-            opacity: 0.9;
+            font-weight: 600;
+            opacity: 0.95;
             line-height: 1.3;
         }
 
@@ -204,11 +228,9 @@
         .workers-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 0.8vh 0.8vw;
+            gap: 1vh 0.8vw;
             flex: 1;
-            align-content: stretch;
-            overflow: hidden;
-            padding-bottom: 0.4vh;
+            padding-bottom: 2vh;
         }
 
         .worker-card {
@@ -218,33 +240,31 @@
             border-radius: 14px;
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-            padding: 0.9vh 0.8vw;
+            padding: 1.2vh 0.8vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            transition: transform 0.2s ease;
         }
 
         .worker-name {
             font-size: 0.95vw;
-            font-weight: 700; /* Bold Apple */
+            font-weight: 700;
             letter-spacing: -0.01em;
             color: var(--text-primary);
-            margin-bottom: 0.5vh;
+            margin-bottom: 0.6vh;
         }
 
         .worker-badges {
             display: flex;
             flex-direction: column;
-            gap: 0.4vh;
-            font-size: 0.6vw;
+            gap: 0.5vh;
+            font-size: 0.65vw;
             font-weight: 600;
         }
 
-        /* Badges saturadas estilo etiquetas de iOS */
         .badge-analitica {
             background: rgba(255, 59, 48, 0.15);
-            color: #d70015; /* Rojo oscuro Apple para legibilidad */
+            color: #d70015;
             padding: 0.3vh 0.4vw;
             border-radius: 6px;
             border: 1px solid rgba(255, 59, 48, 0.25);
@@ -255,7 +275,7 @@
 
         .badge-reconocimiento {
             background: rgba(175, 82, 222, 0.15);
-            color: #8944ab; /* Morado oscuro Apple para legibilidad */
+            color: #8944ab; 
             padding: 0.3vh 0.4vw;
             border-radius: 6px;
             border: 1px solid rgba(175, 82, 222, 0.25);
@@ -290,7 +310,6 @@
                 </span>
                 <span id="weather-temp">--°C</span>
             </div>
-            <!-- Widget de tiempo sin el icono del reloj -->
             <div class="widget" id="time-widget">
                 <span id="current-time">--:--</span>
             </div>
@@ -298,7 +317,6 @@
     </header>
     
     <div class="dates-container">
-        <!-- Nueva estructura de tarjeta roja -->
         <div class="date-card analitica-card">
             <div class="card-header">
                 <span class="card-title">1. Análisis de Sangre</span>
@@ -312,23 +330,21 @@
             </div>
         </div>
         
-        <!-- Nueva estructura de tarjeta morada -->
         <div class="date-card reconocimiento-card">
             <div class="card-header">
-                <span class="card-title">2. Reconocimiento Médico</span>
+                <span class="card-title">2. Revisión Médica</span>
                 <span class="card-time">Hora fijada por empleado</span>
             </div>
             <div class="card-dates">
                 07 Oct &nbsp;&middot;&nbsp; 16 Oct &nbsp;&middot;&nbsp; 19 Oct &nbsp;&middot;&nbsp; 04 Nov
             </div>
             <div class="card-footer">
-                Tienes que ir obligatoriamente el día y a la hora exacta asignada en tu tarjeta inferior.
+                Acudir el día y a la hora exacta asignada en tu tarjeta inferior.
             </div>
         </div>
     </div>
 
     <div class="workers-grid">
-        <!-- Listado ordenado alfabéticamente -->
         <div class="worker-card">
             <div class="worker-name">Alberto Huescar</div>
             <div class="worker-badges">
