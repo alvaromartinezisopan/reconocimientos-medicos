@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconocimientos Médicos - Glassmorphism TV 4K</title>
+    <style>
+        :root {
+            --text-primary: #1e293b; 
+            --text-secondary: #475569; 
+            --card-radius: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: #f0fdfa;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(180, 50%, 85%, 0.6) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(210, 60%, 85%, 0.6) 0, transparent 50%), 
+                radial-gradient(at 50% 100%, hsla(160, 40%, 80%, 0.6) 0, transparent 50%);
+            color: var(--text-primary);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; 
+            padding: 2vh 2.5vw;
+            justify-content: space-between;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1vh 2vw;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            width: 100%;
+            margin-bottom: 1.2vh;
+        }
+
+        .header-left, .header-right {
+            width: 30%; 
+            display: flex;
+            align-items: center;
+        }
+
+        .header-left {
+            justify-content: flex-start;
+        }
+
+        .header-right {
+            justify-content: flex-end;
+            gap: 1.2vw;
+        }
+
+        .header-center {
+            width: 40%;
+            text-align: center;
+        }
+
+        .logo {
+            max-height: 5vh;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .widget {
+            background: rgba(255, 255, 255, 0.65);
+            padding: 0.8vh 1.2vw;
+            border-radius: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.3vw; 
+            display: flex;
+            align-items: center;
+            gap: 0.5vw;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border: 1px solid rgba(255,255,255,0.85);
+        }
+
+        h1 {
+            font-size: 2vw;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 0.75vw;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 0.2vh;
+        }
+
+        .dates-container {
+            display: flex;
+            gap: 1.5vw;
+            margin-bottom: 1.2vh;
+        }
+
+        .date-card {
+            flex: 1;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            padding: 1vh 1.5vw;
+            display: flex;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        /* Tarjeta de analíticas en tono rojo claro */
+        .date-card.analitica-card {
+            background: rgba(254, 226, 226, 0.65);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+        }
+        .date-card.analitica-card .date-info h3 {
+            color: #991b1b;
+        }
+        .date-card.analitica-card .date-info p {
+            color: #7f1d1d;
+        }
+        .date-card.analitica-card .sub-info {
+            color: #b91c1c;
+        }
+
+        /* Tarjeta de reconocimientos en tono morado */
+        .date-card.reconocimiento-card {
+            background: rgba(237, 233, 254, 0.65);
+            border: 1px solid rgba(168, 85, 247, 0.35);
+        }
+        .date-card.reconocimiento-card .date-info h3 {
+            color: #6d28d9;
+        }
+        .date-card.reconocimiento-card .date-info p {
+            color: #581c87;
+        }
+        .date-card.reconocimiento-card .sub-info {
+            color: #7c3aed;
+        }
+
+        .date-icon {
+            font-size: 2.2vw;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
+        }
+
+        .date-info h3 {
+            font-size: 1vw;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.1vh;
+        }
+
+        .date-info p {
+            font-size: 1.2vw;
+            font-weight: 800;
+        }
+
+        .date-info .sub-info {
+            font-size: 0.75vw;
+            font-weight: 600;
+            margin-top: 0.2vh;
+        }
+
+        /* GRID GENERAL DE TRABAJADORES */
+        .workers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8vh 1vw;
+            flex: 1;
+            align-content: start;
+            overflow: hidden;
+            padding-bottom: 0.5vh;
+        }
+
+        .worker-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+            padding: 0.8vh 1vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .worker-name {
+            font-size: 0.95vw;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 0.3vh;
+        }
+
+        .worker-badges {
+            display: flex;
+            gap: 0.4vw;
+            font-size: 0.58vw;
+            font-weight: 700;
+            flex-wrap: wrap;
+        }
+
+        .badge-analitica {
+            background: rgba(239, 68, 68, 0.12);
+            color: #991b1b;
+            padding: 0.2vh 0.5vw;
+            border-radius: 6px;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .badge-reconocimiento {
+            background: rgba(124, 58, 237, 0.12);
+            color: #6d28d9;
+            padding: 0.2vh 0.5vw;
+            border-radius: 6px;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://github.com/alvaromartinezisopan/app-calculadora-envios/blob/main/logo2.png?raw=true" alt="Logo" class="logo">
+        </div>
+        
+        <div class="header-center">
+            <h1>REVISIONES MÉDICAS 2026</h1>
+            <p class="subtitle">Consulta tu cita individual de Analítica y Reconocimiento Médico</p>
+        </div>
+        
+        <div class="header-right">
+            <div class="widget" id="weather-widget">
+                <span id="weather-icon">☁️</span>
+                <span id="weather-temp">--°C</span>
+            </div>
+            <div class="widget" id="time-widget">
+                <span id="current-time">--:--</span>
+            </div>
+        </div>
+    </header>
+    
+    <div class="dates-container">
+        <div class="date-card analitica-card">
+            <div class="date-icon">🩸</div>
+            <div class="date-info">
+                <h3>Analíticas (7:00h a 11:00h)</h3>
+                <p>16 Sep &nbsp;|&nbsp; 22 Sep &nbsp;|&nbsp; 30 Sep</p>
+                <div class="sub-info">* Asistencia libre dentro del horario indicado. <b>Es obligatorio venir en ayunas.</b></div>
+            </div>
+        </div>
+        <div class="date-card reconocimiento-card">
+            <div class="date-icon">🩺</div>
+            <div class="date-info">
+                <h3>Reconocimientos Médicos</h3>
+                <p>07 Oct &nbsp;|&nbsp; 16 Oct &nbsp;|&nbsp; 19 Oct &nbsp;|&nbsp; 04 Nov</p>
+                <div class="sub-info">* Asistencia obligatoria el día y a la hora exacta marcada para cada trabajador.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="workers-grid">
+        <!-- Listado ordenado alfabéticamente con hora exacta en el reconocimiento -->
+        <div class="worker-card">
+            <div class="worker-name">Alberto Huescar</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 09:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Alejandro Gutiérrez</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 09:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Alexandre Badia</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 08:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Andres Arango</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 08:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Antonio Bosquet</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 08:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Antonio Márquez</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 09:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Arnau Díaz</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 08:40 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Daniel Algaba</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 08:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Daniel Navarro</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 10:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">David Curiel</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 08:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">David Gómez</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 08:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">David Nieto</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 09:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Eduardo Tejero</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 10:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Federico Pons</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 10:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Fernando Millan</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 09:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Francisco Curco</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 08:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Gregorio Roca</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 10:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Hector Manuel Reyes</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 08:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Ismael Cortés</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 08:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Jacob Moreno</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 09:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Jacobo Gómez</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 09:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Jose Delgado</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 09:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Jose Manuel López</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 08:40 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">José Raya</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 09:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Josep Mena</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 08:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Juan Carlos Munera</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 09:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Jordi Serrahima</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 10:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Leonardo Grez</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 08:40 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Luca Adolfini</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 10:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Luis Galvan</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 09:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Manuel Pavón</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 09:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Marc Carrasco</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 07 Oct - 08:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Oriol Pla</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 08:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Oscar Rodríguez</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 10:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Reynaldo Olaverria</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 10:00 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Ruben Fernández</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 08:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Salva Gómez</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 08:20 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Tomás Jimenez</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 22 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 19 Oct - 08:40 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Victor Fuentes</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 16 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 16 Oct - 08:40 h</span>
+            </div>
+        </div>
+
+        <div class="worker-card">
+            <div class="worker-name">Víctor Sánchez</div>
+            <div class="worker-badges">
+                <span class="badge-analitica">🩸 30 Sep (07:00-11:00h)</span>
+                <span class="badge-reconocimiento">🩺 04 Nov - 10:00 h</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const options = { hour: '2-digit', minute: '2-digit' };
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('es-ES', options);
+        }
+        
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        async function fetchWeather() {
+            try {
+                const lat = 41.1534; 
+                const lon = 1.2140;
+                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+                const data = await response.json();
+                
+                if (data.current_weather) {
+                    const temp = Math.round(data.current_weather.temperature);
+                    const isDay = data.current_weather.is_day;
+                    const weatherCode = data.current_weather.weathercode;
+                    
+                    document.getElementById('weather-temp').textContent = `${temp}°C`;
+                    
+                    let icon = '☀️';
+                    if (weatherCode >= 50) icon = '🌧️';
+                    else if (weatherCode >= 1 && weatherCode < 50) icon = '☁️';
+                    else if (!isDay) icon = '🌙';
+                    
+                    document.getElementById('weather-icon').textContent = icon;
+                }
+            } catch (error) {
+                console.error("No se pudo cargar el clima", error);
+                document.getElementById('weather-temp').textContent = '--°C';
+            }
+        }
+
+        fetchWeather();
+        setInterval(fetchWeather, 30 * 60 * 1000);
+    </script>
+</body>
+</html>
