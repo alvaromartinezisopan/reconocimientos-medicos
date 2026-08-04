@@ -6,25 +6,29 @@
     <title>Reconocimientos Médicos - Glassmorphism TV 4K</title>
     <style>
         :root {
-            --text-primary: #1e293b; 
-            --text-secondary: #475569; 
-            --card-radius: 16px;
+            --text-primary: #1d1d1f; /* Negro nativo de Apple */
+            --text-secondary: #86868b; /* Gris secundario de Apple */
+            --card-radius: 18px;
+            --apple-red: rgba(255, 59, 48, 0.85); /* Rojo saturado iOS */
+            --apple-purple: rgba(175, 82, 222, 0.85); /* Morado saturado iOS */
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
             background-color: #f0fdfa;
+            /* Fondo con gradientes más vibrantes para que el cristal reaccione mejor */
             background-image: 
-                radial-gradient(at 0% 0%, hsla(180, 50%, 85%, 0.6) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(210, 60%, 85%, 0.6) 0, transparent 50%), 
-                radial-gradient(at 50% 100%, hsla(160, 40%, 80%, 0.6) 0, transparent 50%);
+                radial-gradient(at 0% 0%, hsla(180, 70%, 75%, 0.6) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(210, 80%, 80%, 0.6) 0, transparent 50%), 
+                radial-gradient(at 50% 100%, hsla(280, 50%, 80%, 0.6) 0, transparent 50%);
             color: var(--text-primary);
             width: 100vw;
             height: 100vh;
@@ -35,17 +39,21 @@
             justify-content: space-between;
         }
 
+        /* EFECTO GLASSMORPHISM BASE */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+        }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             padding: 0.8vh 1.5vw;
-            border-radius: 18px;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-radius: var(--card-radius);
             width: 100%;
             margin-bottom: 0.8vh;
         }
@@ -78,7 +86,7 @@
         }
 
         .widget {
-            background: rgba(255, 255, 255, 0.65);
+            background: rgba(255, 255, 255, 0.7);
             padding: 0.6vh 1vw;
             border-radius: 12px;
             font-weight: 700;
@@ -87,8 +95,8 @@
             display: flex;
             align-items: center;
             gap: 0.4vw;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-            border: 1px solid rgba(255,255,255,0.85);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
         .widget svg {
@@ -97,25 +105,26 @@
             fill: currentColor;
         }
 
+        /* TIPOGRAFÍA ESTILO APPLE */
         h1 {
-            font-size: 1.9vw;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: #0f172a;
+            font-size: 2.1vw;
+            font-weight: 800; /* Extra bold típico de SF Pro Display */
+            letter-spacing: -0.04em; /* Kerning negativo de Apple */
+            color: var(--text-primary);
             line-height: 1.1;
         }
 
         .subtitle {
-            font-size: 0.82vw;
+            font-size: 0.85vw;
             color: var(--text-secondary);
             font-weight: 600;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.02em;
             text-transform: uppercase;
             margin-top: 0.3vh;
         }
 
         .subtitle b {
-            color: #0f172a;
+            color: var(--text-primary);
         }
 
         .dates-container {
@@ -126,74 +135,72 @@
 
         .date-card {
             flex: 1;
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-radius: 14px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            padding: 1vh 1.2vw;
+            border-radius: var(--card-radius);
+            padding: 1.2vh 1.5vw;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
+            backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            color: var(--text-primary); /* Texto oscuro para máxima legibilidad */
         }
 
-        /* Tarjeta de analíticas en tono rojo claro */
+        /* Tarjeta de analíticas ROJO APPLE */
         .date-card.analitica-card {
-            background: rgba(254, 226, 226, 0.65);
-            border: 1px solid rgba(239, 68, 68, 0.35);
-        }
-        .date-card.analitica-card h3 {
-            color: #991b1b;
-        }
-        .date-card.analitica-card p {
-            color: #7f1d1d;
-        }
-        .date-card.analitica-card .sub-info {
-            color: #b91c1c;
+            background: var(--apple-red);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 59, 48, 0.25);
         }
 
-        /* Tarjeta de reconocimientos en tono morado */
+        /* Tarjeta de reconocimientos MORADO APPLE */
         .date-card.reconocimiento-card {
-            background: rgba(237, 233, 254, 0.65);
-            border: 1px solid rgba(168, 85, 247, 0.35);
-        }
-        .date-card.reconocimiento-card h3 {
-            color: #6d28d9;
-        }
-        .date-card.reconocimiento-card p {
-            color: #581c87;
-        }
-        .date-card.reconocimiento-card .sub-info {
-            color: #7c3aed;
+            background: var(--apple-purple);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(175, 82, 222, 0.25);
         }
 
-        .date-info h3 {
-            font-size: 1vw;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-bottom: 0.3vh;
+        /* NUEVA ESTRUCTURA DE TARJETAS TIPO WIDGET */
+        .card-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.4vw;
+            margin-bottom: 0.8vh;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            padding-bottom: 0.6vh;
         }
 
-        .date-info h3 svg {
-            width: 1.1vw;
-            height: 1.1vw;
-            fill: currentColor;
-        }
-
-        .date-info p {
-            font-size: 1.15vw;
+        .card-title {
+            font-size: 1vw;
             font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
         }
 
-        .date-info .sub-info {
-            font-size: 0.75vw;
-            font-weight: 600;
-            margin-top: 0.3vh;
+        .card-time {
+            font-size: 0.8vw;
+            font-weight: 700;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 0.3vh 0.6vw;
+            border-radius: 20px;
+            letter-spacing: 0.02em;
         }
 
-        /* GRID GENERAL DE TRABAJADORES (5 COLUMNAS, TARJETAS MÁS ALTAS Y ESPACIADAS) */
+        .card-dates {
+            font-size: 1.4vw;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.8vh;
+            text-align: center;
+        }
+
+        .card-footer {
+            font-size: 0.85vw;
+            font-weight: 500;
+            opacity: 0.9;
+            line-height: 1.3;
+        }
+
+        /* GRID GENERAL DE TRABAJADORES */
         .workers-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -205,66 +212,68 @@
         }
 
         .worker-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.85);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
             padding: 0.9vh 0.8vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            transition: transform 0.2s ease;
         }
 
         .worker-name {
-            font-size: 0.88vw;
-            font-weight: 800;
-            color: #1e293b;
-            margin-bottom: 0.4vh;
+            font-size: 0.95vw;
+            font-weight: 700; /* Bold Apple */
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 0.5vh;
         }
 
         .worker-badges {
             display: flex;
             flex-direction: column;
-            gap: 0.35vh;
-            font-size: 0.58vw;
-            font-weight: 700;
+            gap: 0.4vh;
+            font-size: 0.6vw;
+            font-weight: 600;
         }
 
+        /* Badges saturadas estilo etiquetas de iOS */
         .badge-analitica {
-            background: rgba(239, 68, 68, 0.12);
-            color: #991b1b;
-            padding: 0.25vh 0.4vw;
-            border-radius: 5px;
-            border: 1px solid rgba(239, 68, 68, 0.2);
+            background: rgba(255, 59, 48, 0.15);
+            color: #d70015; /* Rojo oscuro Apple para legibilidad */
+            padding: 0.3vh 0.4vw;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 59, 48, 0.25);
             display: inline-flex;
             align-items: center;
             gap: 0.25vw;
         }
 
         .badge-reconocimiento {
-            background: rgba(124, 58, 237, 0.12);
-            color: #6d28d9;
-            padding: 0.25vh 0.4vw;
-            border-radius: 5px;
-            border: 1px solid rgba(168, 85, 247, 0.2);
+            background: rgba(175, 82, 222, 0.15);
+            color: #8944ab; /* Morado oscuro Apple para legibilidad */
+            padding: 0.3vh 0.4vw;
+            border-radius: 6px;
+            border: 1px solid rgba(175, 82, 222, 0.25);
             display: inline-flex;
             align-items: center;
             gap: 0.25vw;
         }
 
         .badge-analitica svg, .badge-reconocimiento svg {
-            width: 0.75vw;
-            height: 0.75vw;
+            width: 0.8vw;
+            height: 0.8vw;
             fill: currentColor;
             flex-shrink: 0;
         }
-
     </style>
 </head>
 <body>
-    <header>
+    <header class="glass-panel">
         <div class="header-left">
             <img src="https://github.com/alvaromartinezisopan/app-calculadora-envios/blob/main/logo2.png?raw=true" alt="Logo" class="logo">
         </div>
@@ -281,32 +290,39 @@
                 </span>
                 <span id="weather-temp">--°C</span>
             </div>
+            <!-- Widget de tiempo sin el icono del reloj -->
             <div class="widget" id="time-widget">
-                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
                 <span id="current-time">--:--</span>
             </div>
         </div>
     </header>
     
     <div class="dates-container">
+        <!-- Nueva estructura de tarjeta roja -->
         <div class="date-card analitica-card">
-            <div class="date-info">
-                <h3>
-                    <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-                    1. Análisis de Sangre (De 7:00 a 11:00 h)
-                </h3>
-                <p>16 Sep &nbsp;|&nbsp; 22 Sep &nbsp;|&nbsp; 30 Sep</p>
-                <div class="sub-info">- Puedes ir a la hora que quieras dentro de ese horario. <b>Es obligatorio venir en ayunas.</b></div>
+            <div class="card-header">
+                <span class="card-title">1. Análisis de Sangre</span>
+                <span class="card-time">De 07:00 a 11:00 h</span>
+            </div>
+            <div class="card-dates">
+                16 Sep &nbsp;&middot;&nbsp; 22 Sep &nbsp;&middot;&nbsp; 30 Sep
+            </div>
+            <div class="card-footer">
+                Asistencia libre dentro del horario. <b>Es obligatorio venir en ayunas.</b>
             </div>
         </div>
+        
+        <!-- Nueva estructura de tarjeta morada -->
         <div class="date-card reconocimiento-card">
-            <div class="date-info">
-                <h3>
-                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-                    2. Revisión Médica (Hora fija)
-                </h3>
-                <p>07 Oct &nbsp;|&nbsp; 16 Oct &nbsp;|&nbsp; 19 Oct &nbsp;|&nbsp; 04 Nov</p>
-                <div class="sub-info">- Tienes que ir obligatoriamente el día y a la hora exacta que pone en tu tarjeta de abajo.</div>
+            <div class="card-header">
+                <span class="card-title">2. Reconocimiento Médico</span>
+                <span class="card-time">Hora fijada por empleado</span>
+            </div>
+            <div class="card-dates">
+                07 Oct &nbsp;&middot;&nbsp; 16 Oct &nbsp;&middot;&nbsp; 19 Oct &nbsp;&middot;&nbsp; 04 Nov
+            </div>
+            <div class="card-footer">
+                Tienes que ir obligatoriamente el día y a la hora exacta asignada en tu tarjeta inferior.
             </div>
         </div>
     </div>
@@ -316,7 +332,7 @@
         <div class="worker-card">
             <div class="worker-name">Alberto Huescar</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 09:00 h</span>
             </div>
         </div>
@@ -324,7 +340,7 @@
         <div class="worker-card">
             <div class="worker-name">Alejandro Gutiérrez</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 09:20 h</span>
             </div>
         </div>
@@ -332,7 +348,7 @@
         <div class="worker-card">
             <div class="worker-name">Alexandre Badia</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 08:00 h</span>
             </div>
         </div>
@@ -340,7 +356,7 @@
         <div class="worker-card">
             <div class="worker-name">Andres Arango</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 08:00 h</span>
             </div>
         </div>
@@ -348,7 +364,7 @@
         <div class="worker-card">
             <div class="worker-name">Antonio Bosquet</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 08:20 h</span>
             </div>
         </div>
@@ -356,7 +372,7 @@
         <div class="worker-card">
             <div class="worker-name">Antonio Márquez</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 09:20 h</span>
             </div>
         </div>
@@ -364,7 +380,7 @@
         <div class="worker-card">
             <div class="worker-name">Arnau Díaz</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 08:40 h</span>
             </div>
         </div>
@@ -372,7 +388,7 @@
         <div class="worker-card">
             <div class="worker-name">Daniel Algaba</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 08:00 h</span>
             </div>
         </div>
@@ -380,7 +396,7 @@
         <div class="worker-card">
             <div class="worker-name">Daniel Navarro</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 10:00 h</span>
             </div>
         </div>
@@ -388,7 +404,7 @@
         <div class="worker-card">
             <div class="worker-name">David Curiel</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 08:20 h</span>
             </div>
         </div>
@@ -396,7 +412,7 @@
         <div class="worker-card">
             <div class="worker-name">David Gómez</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 08:00 h</span>
             </div>
         </div>
@@ -404,7 +420,7 @@
         <div class="worker-card">
             <div class="worker-name">David Nieto</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 09:00 h</span>
             </div>
         </div>
@@ -412,7 +428,7 @@
         <div class="worker-card">
             <div class="worker-name">Eduardo Tejero</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 10:20 h</span>
             </div>
         </div>
@@ -420,7 +436,7 @@
         <div class="worker-card">
             <div class="worker-name">Federico Pons</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 10:20 h</span>
             </div>
         </div>
@@ -428,7 +444,7 @@
         <div class="worker-card">
             <div class="worker-name">Fernando Millan</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 09:00 h</span>
             </div>
         </div>
@@ -436,7 +452,7 @@
         <div class="worker-card">
             <div class="worker-name">Francisco Curco</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 08:00 h</span>
             </div>
         </div>
@@ -444,7 +460,7 @@
         <div class="worker-card">
             <div class="worker-name">Gregorio Roca</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 10:20 h</span>
             </div>
         </div>
@@ -452,7 +468,7 @@
         <div class="worker-card">
             <div class="worker-name">Hector Manuel Reyes</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 08:20 h</span>
             </div>
         </div>
@@ -460,7 +476,7 @@
         <div class="worker-card">
             <div class="worker-name">Ismael Cortés</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 08:00 h</span>
             </div>
         </div>
@@ -468,7 +484,7 @@
         <div class="worker-card">
             <div class="worker-name">Jacob Moreno</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 09:20 h</span>
             </div>
         </div>
@@ -476,7 +492,7 @@
         <div class="worker-card">
             <div class="worker-name">Jacobo Gómez</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 09:00 h</span>
             </div>
         </div>
@@ -484,7 +500,7 @@
         <div class="worker-card">
             <div class="worker-name">Jose Delgado</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 09:20 h</span>
             </div>
         </div>
@@ -492,7 +508,7 @@
         <div class="worker-card">
             <div class="worker-name">Jose Manuel López</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 08:40 h</span>
             </div>
         </div>
@@ -500,7 +516,7 @@
         <div class="worker-card">
             <div class="worker-name">José Raya</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 09:20 h</span>
             </div>
         </div>
@@ -508,7 +524,7 @@
         <div class="worker-card">
             <div class="worker-name">Josep Mena</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 08:00 h</span>
             </div>
         </div>
@@ -516,7 +532,7 @@
         <div class="worker-card">
             <div class="worker-name">Juan Carlos Munera</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 09:00 h</span>
             </div>
         </div>
@@ -524,7 +540,7 @@
         <div class="worker-card">
             <div class="worker-name">Jordi Serrahima</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 10:20 h</span>
             </div>
         </div>
@@ -532,7 +548,7 @@
         <div class="worker-card">
             <div class="worker-name">Leonardo Grez</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 08:40 h</span>
             </div>
         </div>
@@ -540,7 +556,7 @@
         <div class="worker-card">
             <div class="worker-name">Luca Adolfini</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 10:00 h</span>
             </div>
         </div>
@@ -548,7 +564,7 @@
         <div class="worker-card">
             <div class="worker-name">Luis Galvan</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 09:00 h</span>
             </div>
         </div>
@@ -556,7 +572,7 @@
         <div class="worker-card">
             <div class="worker-name">Manuel Pavón</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 09:20 h</span>
             </div>
         </div>
@@ -564,7 +580,7 @@
         <div class="worker-card">
             <div class="worker-name">Marc Carrasco</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 07 Oct - 08:20 h</span>
             </div>
         </div>
@@ -572,7 +588,7 @@
         <div class="worker-card">
             <div class="worker-name">Oriol Pla</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 08:00 h</span>
             </div>
         </div>
@@ -580,7 +596,7 @@
         <div class="worker-card">
             <div class="worker-name">Oscar Rodríguez</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 10:00 h</span>
             </div>
         </div>
@@ -588,7 +604,7 @@
         <div class="worker-card">
             <div class="worker-name">Reynaldo Olaverria</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 10:00 h</span>
             </div>
         </div>
@@ -596,7 +612,7 @@
         <div class="worker-card">
             <div class="worker-name">Ruben Fernández</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 08:20 h</span>
             </div>
         </div>
@@ -604,7 +620,7 @@
         <div class="worker-card">
             <div class="worker-name">Salva Gómez</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 08:20 h</span>
             </div>
         </div>
@@ -612,7 +628,7 @@
         <div class="worker-card">
             <div class="worker-name">Tomás Jimenez</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 22 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 19 Oct - 08:40 h</span>
             </div>
         </div>
@@ -620,7 +636,7 @@
         <div class="worker-card">
             <div class="worker-name">Victor Fuentes</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 16 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 16 Oct - 08:40 h</span>
             </div>
         </div>
@@ -628,7 +644,7 @@
         <div class="worker-card">
             <div class="worker-name">Víctor Sánchez</div>
             <div class="worker-badges">
-                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h en ayunas)</span>
+                <span class="badge-analitica"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Analítica: 30 Sep (7h-11h)</span>
                 <span class="badge-reconocimiento"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Reconocimiento: 04 Nov - 10:00 h</span>
             </div>
         </div>
