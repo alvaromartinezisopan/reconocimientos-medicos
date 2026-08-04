@@ -31,7 +31,7 @@
             display: flex;
             flex-direction: column;
             overflow: hidden; 
-            padding: 1.5vh 2vw;
+            padding: 1.2vh 1.8vw;
             justify-content: space-between;
         }
 
@@ -51,7 +51,7 @@
         }
 
         .header-left, .header-right {
-            width: 28% sacerdote; 
+            width: 28%; 
             display: flex;
             align-items: center;
         }
@@ -71,7 +71,7 @@
         }
 
         .logo {
-            max-height: 4vh;
+            max-height: 4.5vh;
             width: auto;
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
@@ -83,7 +83,7 @@
             border-radius: 12px;
             font-weight: 700;
             color: var(--text-primary);
-            font-size: 1.1vw; 
+            font-size: 1.2vw; 
             display: flex;
             align-items: center;
             gap: 0.4vw;
@@ -92,13 +92,13 @@
         }
 
         .widget svg {
-            width: 1.2vw;
-            height: 1.2vw;
+            width: 1.3vw;
+            height: 1.3vw;
             fill: currentColor;
         }
 
         h1 {
-            font-size: 1.7vw;
+            font-size: 1.9vw;
             font-weight: 800;
             letter-spacing: -0.02em;
             color: #0f172a;
@@ -106,12 +106,12 @@
         }
 
         .subtitle {
-            font-size: 0.7vw;
+            font-size: 0.82vw;
             color: var(--text-secondary);
             font-weight: 600;
             letter-spacing: 0.04em;
             text-transform: uppercase;
-            margin-top: 0.2vh;
+            margin-top: 0.3vh;
         }
 
         .subtitle b {
@@ -130,7 +130,7 @@
             -webkit-backdrop-filter: blur(24px);
             border-radius: 14px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            padding: 0.8vh 1.2vw;
+            padding: 0.9vh 1.2vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -167,37 +167,37 @@
         }
 
         .date-info h3 {
-            font-size: 0.9vw;
+            font-size: 1vw;
             text-transform: uppercase;
             letter-spacing: 0.04em;
-            margin-bottom: 0.1vh;
+            margin-bottom: 0.2vh;
             display: flex;
             align-items: center;
             gap: 0.4vw;
         }
 
         .date-info h3 svg {
-            width: 1vw;
-            height: 1vw;
+            width: 1.1vw;
+            height: 1.1vw;
             fill: currentColor;
         }
 
         .date-info p {
-            font-size: 1.05vw;
+            font-size: 1.15vw;
             font-weight: 800;
         }
 
         .date-info .sub-info {
-            font-size: 0.68vw;
+            font-size: 0.75vw;
             font-weight: 600;
-            margin-top: 0.1vh;
+            margin-top: 0.2vh;
         }
 
         /* GRID GENERAL DE TRABAJADORES */
         .workers-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 0.5vh 0.8vw;
+            gap: 0.6vh 0.8vw;
             flex: 1;
             align-content: start;
             overflow: hidden;
@@ -211,23 +211,23 @@
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.85);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-            padding: 0.5vh 0.8vw;
+            padding: 0.6vh 0.9vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .worker-name {
-            font-size: 0.85vw;
+            font-size: 0.95vw;
             font-weight: 800;
             color: #1e293b;
-            margin-bottom: 0.2vh;
+            margin-bottom: 0.25vh;
         }
 
         .worker-badges {
             display: flex;
-            gap: 0.3vw;
-            font-size: 0.52vw;
+            gap: 0.35vw;
+            font-size: 0.6vw;
             font-weight: 700;
             flex-wrap: wrap;
         }
@@ -235,28 +235,28 @@
         .badge-analitica {
             background: rgba(239, 68, 68, 0.12);
             color: #991b1b;
-            padding: 0.15vh 0.4vw;
+            padding: 0.2vh 0.45vw;
             border-radius: 4px;
             border: 1px solid rgba(239, 68, 68, 0.2);
             display: inline-flex;
             align-items: center;
-            gap: 0.2vw;
+            gap: 0.25vw;
         }
 
         .badge-reconocimiento {
             background: rgba(124, 58, 237, 0.12);
             color: #6d28d9;
-            padding: 0.15vh 0.4vw;
+            padding: 0.2vh 0.45vw;
             border-radius: 4px;
             border: 1px solid rgba(124, 58, 237, 0.2);
             display: inline-flex;
             align-items: center;
-            gap: 0.2vw;
+            gap: 0.25vw;
         }
 
         .badge-analitica svg, .badge-reconocimiento svg {
-            width: 0.75vw;
-            height: 0.75vw;
+            width: 0.8vw;
+            height: 0.8vw;
             fill: currentColor;
         }
 
@@ -657,13 +657,13 @@
                     
                     document.getElementById('weather-temp').textContent = `${temp}°C`;
                     
-                    let svgPath = '<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>'; // Nube por defecto
+                    let svgPath = '<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>'; 
                     if (weatherCode >= 50) {
-                        svgPath = '<path d="M16 13c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2zm-8 2c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2zm8-10C13.66 3 11 4.66 11 7.5V8H7c-1.1 0-2 .9-2 2v1c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-1c0-1.1-.9-2-2-2h-2v-.5C15 5.67 14.33 5 13.5 5c-.41 0-.79.17-1.06.44-.27.27-.44.65-.44 1.06h2c0-.28.22-.5.5-.5s.5.22.5.5v.5h-2z"/>'; // Lluvia
+                        svgPath = '<path d="M16 13c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2zm-8 2c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2zm8-10C13.66 3 11 4.66 11 7.5V8H7c-1.1 0-2 .9-2 2v1c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-1c0-1.1-.9-2-2-2h-2v-.5C15 5.67 14.33 5 13.5 5c-.41 0-.79.17-1.06.44-.27.27-.44.65-.44 1.06h2c0-.28.22-.5.5-.5s.5.22.5.5v.5h-2z"/>'; 
                     } else if (weatherCode === 0) {
-                        svgPath = '<path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/>'; // Sol
+                        svgPath = '<path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1 z"/>'; 
                     } else if (!isDay) {
-                        svgPath = '<path d="M12.3 2c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.1-2.1C9.39 19.26 10.8 19.6 12.3 19.6c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/>'; // Luna
+                        svgPath = '<path d="M12.3 2c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.1-2.1C9.39 19.26 10.8 19.6 12.3 19.6c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7 z"/>'; 
                     }
                     
                     document.getElementById('weather-icon').innerHTML = `<svg viewBox="0 0 24 24">${svgPath}</svg>`;
