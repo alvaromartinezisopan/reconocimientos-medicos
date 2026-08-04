@@ -130,7 +130,7 @@
             -webkit-backdrop-filter: blur(24px);
             border-radius: 14px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            padding: 0.9vh 1.2vw;
+            padding: 1vh 1.2vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -170,7 +170,7 @@
             font-size: 1vw;
             text-transform: uppercase;
             letter-spacing: 0.04em;
-            margin-bottom: 0.2vh;
+            margin-bottom: 0.3vh;
             display: flex;
             align-items: center;
             gap: 0.4vw;
@@ -190,53 +190,53 @@
         .date-info .sub-info {
             font-size: 0.75vw;
             font-weight: 600;
-            margin-top: 0.2vh;
+            margin-top: 0.3vh;
         }
 
-        /* GRID GENERAL DE TRABAJADORES (MODIFICADO A 5 COLUMNAS) */
+        /* GRID GENERAL DE TRABAJADORES (5 COLUMNAS, TARJETAS MÁS ALTAS Y ESPACIADAS) */
         .workers-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 0.5vh 0.6vw;
+            gap: 0.8vh 0.8vw;
             flex: 1;
-            align-content: start;
+            align-content: stretch;
             overflow: hidden;
-            padding-bottom: 0.2vh;
+            padding-bottom: 0.4vh;
         }
 
         .worker-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 10px;
+            border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.85);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-            padding: 0.5vh 0.7vw;
+            padding: 0.9vh 0.8vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .worker-name {
-            font-size: 0.85vw;
+            font-size: 0.88vw;
             font-weight: 800;
             color: #1e293b;
-            margin-bottom: 0.2vh;
+            margin-bottom: 0.4vh;
         }
 
         .worker-badges {
             display: flex;
             flex-direction: column;
-            gap: 0.2vh;
-            font-size: 0.55vw;
+            gap: 0.35vh;
+            font-size: 0.58vw;
             font-weight: 700;
         }
 
         .badge-analitica {
             background: rgba(239, 68, 68, 0.12);
             color: #991b1b;
-            padding: 0.15vh 0.35vw;
-            border-radius: 4px;
+            padding: 0.25vh 0.4vw;
+            border-radius: 5px;
             border: 1px solid rgba(239, 68, 68, 0.2);
             display: inline-flex;
             align-items: center;
@@ -246,8 +246,8 @@
         .badge-reconocimiento {
             background: rgba(124, 58, 237, 0.12);
             color: #6d28d9;
-            padding: 0.15vh 0.35vw;
-            border-radius: 4px;
+            padding: 0.25vh 0.4vw;
+            border-radius: 5px;
             border: 1px solid rgba(168, 85, 247, 0.2);
             display: inline-flex;
             align-items: center;
@@ -255,8 +255,8 @@
         }
 
         .badge-analitica svg, .badge-reconocimiento svg {
-            width: 0.7vw;
-            height: 0.7vw;
+            width: 0.75vw;
+            height: 0.75vw;
             fill: currentColor;
             flex-shrink: 0;
         }
